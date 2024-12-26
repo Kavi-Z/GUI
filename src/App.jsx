@@ -6,26 +6,42 @@ import MidBody from './Components/MidBody/Mid'
 import Slider from './Components/Slider/slider'
 import Footer from './Components/Footer/footer'
 import Title from './Components/Title/Title'
-const App = () => {
+import Login from './Components/LoginPage/login'
 
- 
+const App = () => {
+  let cur;
+
+  switch (window.location.pathname) {
+    case "/Login":
+      cur = <Login />;
+      break;
+    default:
+      cur = (
+        <>
+         <Navbar />
+          <Body />
+          <MidBody />
+          <div className="container">
+            <Title />
+          </div>
+          <Food />
+          <Slider />
+         
+          <Footer />
+        </>
+      );
+      break;
+  }
+
   return (
     <>
-   
-    <div>
+      <div>
        
-      <Navbar  />
-      <Body />
-      <MidBody/>
-      <div className='container'>
-      <Title /> 
+        {cur}
+        
       </div>
-      <Food />
-      <Slider />
-    <Footer />
-    </div>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

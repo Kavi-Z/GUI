@@ -1,26 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      window.scrollY > 50 ? setSticky(true) : setSticky(false);
-    });
+    const handleScroll = () => {
+      setSticky(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', () => {});  
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <nav className={`container ${sticky ? 'dark-nav' : ''}`}>
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Services</li>
-        <li>Contact</li>
+        <li>
+         Home 
+        </li>
+        <li>
+         About
+        </li>
+        <li>
+           Services 
+        </li>
+        <li>
+       Contact 
+        </li>
         <li>
           <button className="btn" onClick={() => setShowLogin(true)}>
             Login

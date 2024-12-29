@@ -18,8 +18,7 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // Fetch products from the server
+ 
   const refreshProducts = () => {
     setLoading(true);
     axios
@@ -33,7 +32,7 @@ const App = () => {
         setLoading(false);
       });
   };
-
+ 
   useEffect(() => {
     refreshProducts();
   }, []);
@@ -41,12 +40,14 @@ const App = () => {
   return (
     <Router>
       <div>
+        
         {error && <div style={{ color: 'red' }}>{error}</div>}
+       
         {loading ? (
           <div>Loading...</div>
         ) : (
           <Routes>
-            {/* Main Home Page */}
+          
             <Route
               path="/"
               element={
@@ -64,21 +65,23 @@ const App = () => {
               }
             />
 
-            {/* CRUD Routes */}
+          
             <Route
               path="/products"
               element={<ProductList products={products} refreshProducts={refreshProducts} />}
             />
+ 
             <Route
               path="/add-product"
               element={<AddProduct refreshProducts={refreshProducts} />}
             />
+
+            
             <Route
-              path="/edit-product/:id"
+              path="/edit/:id"
               element={<EditProduct refreshProducts={refreshProducts} />}
             />
-
-            {/* Authentication Routes */}
+ 
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>

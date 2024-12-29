@@ -11,7 +11,10 @@
     align-items: center;
     justify-content: center;
 }
-
+.heading{
+    color: aliceblue;
+   
+}
 .body-text{
     text-align: center;
     max-width: 800px;

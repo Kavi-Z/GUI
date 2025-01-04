@@ -1,0 +1,31 @@
+.Body{
+    width: 100%;
+    min-height:100vh;
+    background: linear-gradient(rgba(8,0,58, 0.7), rgba(0,0,0, 0.6)),url('../../Assets/pexels-life-of-pix-67468.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.heading{
+    color: aliceblue;
+   
+}
+.body-text{
+    text-align: center;
+    max-width: 800px;
+
+}
+.body-text h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.body-text p{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}

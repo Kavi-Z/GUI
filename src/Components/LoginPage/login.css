@@ -20,6 +20,7 @@ a {
 }
 
 .btn {
+  margin: 10px 0px 0px 25px;
   background: #ffffff;
   color: #000000;
   padding: 14px 25px;
@@ -30,6 +31,7 @@ a {
   font-weight: 500;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .btn:hover {

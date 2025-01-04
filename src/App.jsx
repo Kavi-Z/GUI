@@ -12,13 +12,16 @@ import Signup from './Components/signup/signup';
 import AddProduct from './Components/AddProduct';
 import EditProduct from './Components/EditProduct';
 import ProductList from './Components/ProductList';
+import Dashboard from './Components/Dashboard/Dashboard'; 
+import NavbarA from './Components/Navbar/Navbar';
+ 
 import axios from 'axios';
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
- 
+
   const refreshProducts = () => {
     setLoading(true);
     axios
@@ -32,7 +35,7 @@ const App = () => {
         setLoading(false);
       });
   };
- 
+
   useEffect(() => {
     refreshProducts();
   }, []);
@@ -40,14 +43,12 @@ const App = () => {
   return (
     <Router>
       <div>
-        
         {error && <div style={{ color: 'red' }}>{error}</div>}
-       
+
         {loading ? (
           <div>Loading...</div>
         ) : (
           <Routes>
-          
             <Route
               path="/"
               element={
@@ -65,25 +66,27 @@ const App = () => {
               }
             />
 
-          
             <Route
               path="/products"
               element={<ProductList products={products} refreshProducts={refreshProducts} />}
             />
- 
+
             <Route
               path="/add-product"
               element={<AddProduct refreshProducts={refreshProducts} />}
             />
 
-            
             <Route
               path="/edit/:id"
               element={<EditProduct refreshProducts={refreshProducts} />}
             />
- 
+
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+
+           
+            <Route path="/dashboard" element={<><Dashboard />
+           <NavbarA /></>} />  
           </Routes>
         )}
       </div>

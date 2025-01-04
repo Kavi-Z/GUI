@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './ProductList.css';
 
 const ProductList = ({ products, refreshProducts }) => {
   const deleteProduct = (id) => {
@@ -10,22 +11,26 @@ const ProductList = ({ products, refreshProducts }) => {
   };
 
   return (
-    <div>
+    <div className="product-list-container">
       <h1>Product List</h1>
-      <Link to="/add">
-        <button>Add Product</button>
+      <Link to="/add-product">
+        <button className="add-product-btn">Add Product</button>
       </Link>
-      <ul>
+      <div className="product-list">
         {products.map((product) => (
-          <li key={product._id}>
-            <strong>{product.name}</strong>: {product.description} - ${product.price}
-            <Link to={`/edit/${product._id}`}>
-              <button>Edit</button>
-            </Link>
-            <button onClick={() => deleteProduct(product._id)}>Delete</button>
-          </li>
+          <div className="product-item" key={product._id}>
+            <div className="product-name"><strong>{product.name}</strong></div>
+            <div className="product-description">{product.description}</div>
+            <div className="product-price">Price: ${product.price}</div>
+            <div className="product-actions">
+              <Link to={`/edit/${product._id}`}>
+                <button className="edit-btn">Edit</button>
+              </Link>
+              <button className="delete-btn" onClick={() => deleteProduct(product._id)}>Delete</button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

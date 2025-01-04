@@ -27,7 +27,8 @@ const AddProduct = ({ refreshProducts }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h1>Add Product</h1>
-      <div>
+      <div className='Add'>
+      <div >
         <label>Product Name:</label>
         <input 
           type="text" 
@@ -56,8 +57,10 @@ const AddProduct = ({ refreshProducts }) => {
           required 
         />
       </div>
-      <button type="submit">Add Product</button>
+      </div>
+      <button type="submit" id="btn">Add Product</button>
     </form>
+  
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-scroll'; 
 import './Navbar.css';
 
 const Navbar = () => {
@@ -18,11 +19,20 @@ const Navbar = () => {
 
   return (
     <nav className={sticky ? 'dark-nav' : ''}>
-      <a href="/">Home</a>
-      <a href="/products">Products</a>
-      <a href="/add-product">Add Product</a>
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
+      <ul className="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><Link to="about-section" smooth={true} duration={500} offset={-80}>About</Link></li>
+        <li><Link to="contact-section" smooth={true} duration={500} offset={-80}>Contact</Link></li>
+        <li>
+          <Link to="blog" smooth={true} duration={500} offset={-250}>
+            Blog
+          </Link>
+        </li>
+      </ul>
+      <div className="auth-links">
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      </div>
     </nav>
   );
 };

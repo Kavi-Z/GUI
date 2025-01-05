@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './NavbarA.css';
 
-const Navbar = () => {
+const NavbarA = () => {
   const [sticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,6 @@ const Navbar = () => {
       <a href="/">Home</a>
       <a href="/products">Products</a>
       <a href="/add-product">Add Product</a>
-    
     </nav>
   );
 };

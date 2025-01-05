@@ -16,7 +16,10 @@ import SE4 from '../../Assets/SE4.jpg';
 
 const Food = () => {
   return (
-    <div className='foods'>
+    <div>
+      <br /><br /><br /><br /><br />  
+      <h1>Our recipes</h1>  
+    <div className='foods' id='blog'>
       <div className='food'>
         <img src={food2} alt="Food 2" />
         <div className='overlay'>Delicious Rolls, Order Now!</div>
@@ -92,6 +95,7 @@ const Food = () => {
         <h1>Sweet 8</h1>
         
       </div>
+    </div>
     </div>
   );
 };

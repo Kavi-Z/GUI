@@ -6,14 +6,14 @@ import Food from './Components/Foods/Food';
 import MidBody from './Components/MidBody/Mid';
 import Slider from './Components/Slider/slider';
 import Footer from './Components/Footer/footer';
-import Title from './Components/Title/Title';
+ 
 import Login from './Components/LoginPage/login';
 import Signup from './Components/signup/signup';
 import AddProduct from './Components/AddProduct';
 import EditProduct from './Components/EditProduct';
 import ProductList from './Components/ProductList';
 import Dashboard from './Components/Dashboard/Dashboard'; 
-import NavbarA from './Components/Navbar/Navbar';
+import NavbarA from './Components/NavbarA/NavbarA';
  
 import axios from 'axios';
 
@@ -56,9 +56,7 @@ const App = () => {
                   <Navbar />
                   <Body />
                   <MidBody />
-                  <div className="container">
-                    <Title />
-                  </div>
+                   
                   <Food products={products} />
                   <Slider />
                   <Footer />

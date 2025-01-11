@@ -16,6 +16,9 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import NavbarA from './Components/NavbarA/NavbarA';
  
 import axios from 'axios';
+ 
+
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -53,6 +56,7 @@ const App = () => {
               path="/"
               element={
                 <>
+                
                   <Navbar />
                   <Body />
                   <MidBody />

@@ -1,6 +1,8 @@
 import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -18,47 +20,57 @@ export default function Login() {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem('token', data.token);
-        alert('Login successful!');
-        navigate('/dashboard');  
+        toast.success('Login successful!', { closeButton: false });
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 2000);  // Delay navigation to show toast
       } else {
-        alert(data.message || 'Login failed');
+        toast.error(data.message || 'Login failed', { closeButton: false });
       }
     } catch (error) {
-      alert('An error occurred. Please try again.');
+      toast.error('An error occurred. Please try again.', { closeButton: false });
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="username">User Email</label>
-            <input
-              type="text"
-              id="username"
-              placeholder="Enter username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button type="submit" className="btn">Login</button>
-        </form>
-        <p className="signup-link">
-          Don't have an account? <Link to="/signup">Sign up</Link>
-        </p>
+    <>
+      <ToastContainer 
+        position="top-right" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        closeButton={false} 
+      />
+      <div className="login-container">
+        <div className="login-box">
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label htmlFor="username">User Email</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn">Login</button>
+          </form>
+          <p className="signup-link">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

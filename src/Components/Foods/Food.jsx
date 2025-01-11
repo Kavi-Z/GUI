@@ -49,50 +49,50 @@ const Food = () => {
       <div className='food'>
         <img src={Sweet1} alt="Sweet 1" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 1</h1>
+        <h1>Chocolate cup cake</h1>
         
       </div>
       <div className='food'>
         <img src={Sweet2} alt="Sweet 2" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 2</h1>
+        <h1>Purple cake</h1>
         
       </div>
       <div className='food'>
         <img src={Sweet3} alt="Sweet 3" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 3</h1>
+        <h1>Strawberry cake</h1>
         
       </div>
       <div className='food'>
         <img src={Sweet4} alt="Sweet 4" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 4</h1>
+        <h1>Biscuits</h1>
        
       </div>
 
       <div className='food'>
         <img src={SE1} alt="SE1" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 5</h1>
+        <h1>Samosa</h1>
        
       </div>
       <div className='food'>
         <img src={SE2} alt="SE2" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 6</h1>
+        <h1>Egg Roll</h1>
          
       </div>
       <div className='food'>
         <img src={SE3} alt="SE3" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 7</h1>
+        <h1>Egg Patty</h1>
         
       </div>
       <div className='food'>
         <img src={SE4} alt="SE4" />
         <div className='overlay'>Delicious Sweet, Order Now!</div>
-        <h1>Sweet 8</h1>
+        <h1>Mushroom Patty</h1>
         
       </div>
     </div>

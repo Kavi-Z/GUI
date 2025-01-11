@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './EditProduct.css'; 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './EditProduct.css';
 
 const EditProduct = ({ refreshProducts }) => {
   const { id } = useParams();
@@ -23,30 +25,41 @@ const EditProduct = ({ refreshProducts }) => {
     e.preventDefault();
     axios.put(`http://localhost:3000/api/product/${id}`, product)
       .then(() => {
-        alert('Product updated successfully!');
+        toast.success('Product updated successfully!', { closeButton: false });
         refreshProducts();
-        navigate('/');
+        navigate('/products');
       })
-      .catch((error) => console.error('Error updating product:', error));
+      .catch((error) => {
+        toast.error('Error updating product. Please try again.', { closeButton: false });
+        console.error('Error updating product:', error);
+      });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Edit Product</h1>
-      <div>
-        <label>Product Name:</label>
-        <input type="text" name="name" value={product.name} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Description:</label>
-        <textarea name="description" value={product.description} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Price:</label>
-        <input type="number" name="price" value={product.price} onChange={handleChange} required />
-      </div>
-      <button type="submit">Update Product</button>
-    </form>
+    <>
+      <ToastContainer 
+        position="top-right" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        closeButton={false} 
+      />
+      <form onSubmit={handleSubmit}>
+        <h1>Edit Product</h1>
+        <div>
+          <label>Product Name:</label>
+          <input type="text" name="name" value={product.name} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Description:</label>
+          <textarea name="description" value={product.description} onChange={handleChange} required />
+        </div>
+        <div>
+          <label>Price:</label>
+          <input type="number" name="price" value={product.price} onChange={handleChange} required />
+        </div>
+        <button type="submit">Update Product</button>
+      </form>
+    </>
   );
 };
 

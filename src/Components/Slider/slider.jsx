@@ -3,6 +3,7 @@ import slider1 from '../../Assets/slider1.jpg';
 import slider2 from '../../Assets/slider2.jpg';
 import slider3 from '../../Assets/slider3.jpg';
 import slider4 from '../../Assets/slider4.jpg';
+import bg2 from '../../assets/bg2.jpg';
 import './Slider.css';
 
 const Slider = () => {
@@ -10,15 +11,15 @@ const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = setInterval(() => { 
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 3000);  
 
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <div className="slider">
+    <div className="slider" style={{ backgroundImage: `url(${bg2})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="slider-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
         {images.map((img, index) => (
           <div className="slide" key={index}>
@@ -29,6 +30,7 @@ const Slider = () => {
                 transform: currentIndex === index ? 'scale(1)' : 'scale(0.85)',
                 opacity: currentIndex === index ? 1 : 0.7,
                 transition: 'transform 1s ease, opacity 1s ease',
+                border: '5px solid white', 
               }}
             />
           </div>

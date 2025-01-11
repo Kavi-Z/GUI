@@ -1,21 +1,22 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";   
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      toast.error("Passwords do not match", { closeButton: false }); 
       return;
     }
 
@@ -26,16 +27,26 @@ export default function Signup() {
         password,
       });
       console.log(response.data);
+
       
-      
-      navigate("/Login");  
+      toast.success("Signup successful! Redirecting to login...", { closeButton: false });
+      setTimeout(() => {
+        navigate("/Login");
+      }, 2000);
     } catch (err) {
-      setError(err.response?.data?.message || "Error occurred");
+       
+      toast.error(err.response?.data?.message || "Error occurred during signup", { closeButton: false });
     }
   };
 
   return (
     <div className="login-container">
+      <ToastContainer 
+        position="top-right" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        closeButton={false} 
+        />
       <div className="login-box">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
@@ -83,7 +94,6 @@ export default function Signup() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          {error && <p className="error">{error}</p>}
           <button type="submit" className="btn">Sign Up</button>
         </form>
       </div>

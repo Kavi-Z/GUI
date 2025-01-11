@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-
+ 
 const Footer = () => {
   return (
     <footer className="footer" id='contact-section'>
@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className="footer-social">
           <ul>
-            <li><a href="#facebook">Facebook</a></li>
+            <li><a href="#facebook">Facebook <ion-icon name="logo-facebook"></ion-icon></a></li>
             <li><a href="#twitter">Twitter</a></li>
             <li><a href="#instagram">Instagram</a></li>
           </ul>
@@ -26,7 +26,9 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>&copy; 2024 Your Company. All rights reserved.</p>
       </div>
+      <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     </footer>
+    
   );
 };
 

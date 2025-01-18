@@ -1,0 +1,107 @@
+:root {
+  --bg-color-dark: #0c0a0a;
+  --bg-color-light: rgba(0, 0, 0, 0.8);
+  --text-color-light: #fff;
+  --hover-color: #3498db;
+  --footer-padding: 20px;
+  --font-family: 'Arial', sans-serif;
+  --container-spacing: 30px;
+  --footer-link-fsize: 1.1rem;
+  --footer-link-ffamily: 500;
+  --footer-bottom-fsize: 0.9rem;
+  --footer-bottom-color: rgba(255, 255, 255, 0.7);
+  --footer-bottom-spacing: 20px;
+  --social-icon-size: 20px;
+}
+
+.footer {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  padding: var(--footer-padding);
+  font-family: var(--font-family);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: var(--container-spacing);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.footer-links ul,
+.footer-social ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 15px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  font-size: var(--footer-link-fsize);
+  font-weight: var(--footer-link-ffamily);
+  transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: var(--hover-color);
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-social ion-icon {
+  font-size: var(--social-icon-size);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: var(--footer-bottom-spacing);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: var(--footer-bottom-color);
+  font-size: var(--footer-bottom-fsize);
+}
+
+.footer-bottom a {
+  color: var(--footer-bottom-color);
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: var(--hover-color);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+
+  .footer-links ul,
+  .footer-social ul {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+  }
+
+  .footer-links li,
+  .footer-social li {
+      margin: 0 15px;
+  }
+}

@@ -1,0 +1,83 @@
+nav {
+  display: flex;
+  justify-content: space-between;  
+  align-items: center;
+  color: white;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  
+}
+
+nav .nav-links {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 30px; 
+}
+
+nav .nav-links li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  text-transform: uppercase; 
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+nav .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;  
+}
+
+nav .nav-links li a::after {
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #00e5ff;   
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: width 0.5s ease;  
+}
+
+nav .nav-links li a:hover::after {
+  width: 100%;  
+}
+
+nav .auth-links {
+  display: flex;
+  gap: 20px; 
+}
+
+nav .auth-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid white;
+  border-radius: 25px;
+  transition: transform 0.3s ease;  
+}
+
+nav .auth-links a:hover {
+  transform: translateY(-2px);  
+}
+
+nav .auth-links a:focus {
+  outline: none;
+}
+
+.dark-nav {
+  background-color: rgb(9, 9, 124);
+  transition: 0.5s;
+}

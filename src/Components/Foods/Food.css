@@ -1,0 +1,59 @@
+.foods {
+    margin: 80px auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+h1{
+   text-align: center;
+   position: inherit;
+   left: 30px;
+}
+.food {
+    flex: 0 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    position: relative;
+    
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+     
+}
+
+.food img {
+    position: inherit;
+    width: 300px;
+    height: 400px;
+
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out;
+}
+
+.food img:hover {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 60px;
+    right: 50px;    
+    bottom: 10px;
+    width: 81.35%;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.708);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 15px;
+}
+
+.food:hover .overlay {
+    opacity: 1;
+}
